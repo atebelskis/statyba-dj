@@ -1,0 +1,19 @@
+<html>
+<head>
+
+<head/>
+<body/>
+
+	{% csrf_token %}
+
+	Užsakovai:
+<div> </div>
+		{% for customer in object_list %}
+		<div> {{customer.name}} </div>
+	{% endfor %}
+
+
+
+<body/>
+
+</html>
