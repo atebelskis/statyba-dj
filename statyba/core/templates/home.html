@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% extends 'base.html' %}
+{% block content %}
+
 <body>
 {% csrf_token %}
 <h3> pagrindinis</h3>
 <input type="submit" href="/customer/">
 <a href="/customer/" > Užsakovai </a>
-<a href="/customer_create/" > Įvesti užsakovą </a>
+<a href="/customer/create/" > Įvesti užsakovą </a>
+
+<a href="/project/" > Projektai </a>
+<!--
+<a href="/customer/edit/{{object.id}}" > Redaguoti užsakovą </a>
+<a href="/customer/delete/" > Ištrinti užsakovą </a>
+-->
 
 <div>
     <a href="/admin/" > Admin </a>
@@ -17,4 +20,6 @@
 
 
 </body>
-</html>
+
+
+{% endblock %}

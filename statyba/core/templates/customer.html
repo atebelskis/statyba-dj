@@ -1,8 +1,8 @@
-<html>
-<head>
+{% extends 'base.html' %}
+{% block content %}
 
-<head/>
-<body/>
+
+<div>
 
 	{% csrf_token %}
 
@@ -10,10 +10,12 @@
 <div> </div>
 		{% for customer in object_list %}
 		<div> {{customer.name}} </div>
-	{% endfor %}
+	<a href="/customer/detail/{{customer.id}}" > info </a>
+		{% endfor %}
+
+
+</div>
 
 
 
-<body/>
-
-</html>
+{% endblock %}

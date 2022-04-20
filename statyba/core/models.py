@@ -12,3 +12,22 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
+
+WORKS = (
+    ("E", "Electrical"),
+    ("SST", 'Low current networks'),
+    ('PVA', "Automatisation")
+)
+
+
+class ConstProject(models.Model):
+    obj_name = models.CharField(max_length=200)
+    addresss = models.CharField(max_length=200)
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    works_part = models.CharField(max_length=20, choices=WORKS)
+    description = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.obj_name

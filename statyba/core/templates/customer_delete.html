@@ -2,13 +2,13 @@
 {% block content %}
 
 
-<h3> SUKURTI UZSAKOVA </h3>
+<h3> ISTRINTI UZSAKOVA </h3>
 
 {% csrf_token %}
 <form method="post">
 
-    {{ form.as_p }}
-    <input type="submit" value="Issaugoti">
+{{object.name}}
+    <input type="submit" value="Istrinti">
 </form>
 
 
