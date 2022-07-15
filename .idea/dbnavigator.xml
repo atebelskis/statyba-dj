@@ -39,6 +39,7 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="9a431933-2b00-4a13-8283-1318d50d506e" dataset="main.core_customer" active-filter-id="" />
+    <filter-actions connection-id="9a431933-2b00-4a13-8283-1318d50d506e" dataset="main.core_constproject" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

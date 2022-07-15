@@ -1,8 +1,8 @@
-from django.views.generic import ListView
-from .models import ConstProject
-
-class ProjectListView(ListView):
-    model = ConstProject
-    template_name = 'project_list.html'
-    success_url = '/'
-
+# from django.views.generic import ListView
+#
+#
+# class ProjectListView(ListView):
+#     model = ConstProject
+#     template_name = 'projects/project_list.html'
+#     success_url = '/'
+#
