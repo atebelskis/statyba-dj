@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navigation.html' %}
+
+<div id="container">
+<h5>SUTARTYS</h5>
+<p></p>
+
+<a class="btn btn-success" href="{% url 'contract_create' %}" role="button"> Įvesti naują sutartį </a>
+  <div id="container1">
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Data</th>
+      <th scope="col">Numeris</th>
+      <th scope="col">Objektas</th>
+      <th scope="col">Užsakovas</th>
+      <th scope="col">Pabaigos data</th>
+      <th scope="col">Detaliai</th>
+      <th scope="col">Koreguoti</th>
+      <th scope="col">Ištrinti</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for contract in object_list %}
+    <tr>
+      <th scope="row">{{contract.date}}</th>
+      <td>{{contract.number}}</td>
+      <td>{{contract.object_name}}</td>
+      <td>{{contract.customer}}</td>
+      <td>{{contract.ex_end_date}}</td>
+      <td><a class="btn btn-primary" href="/contract/contract-detail/{{contract.id}}" role="button"> Detaliai </a></td>
+      <td><a class="btn btn-warning" href="/contract/contract-edit/{{contract.id}}" role="button"> Koreguoti</a></td>
+      <td><a class="btn btn-danger" href="{% url 'contract_delete' contract.pk %}" role="button"> Ištrinti </a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    </div>
+<h1></h1>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navigation.html' %}
+
+<div id="container">
+<h5>FORMA 3</h5>
+<p></p>
+
+<a class="btn btn-success" href="{% url 'form3_create' %}" role="button"> Sukurti naują </a>
+  <div id="container1">
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Data</th>
+      <th scope="col">Užsakovas</th>
+      <th scope="col">Objektas</th>
+      <th scope="col">Sutartis</th>
+      <th scope="col">Atlikta per mėn</th>
+      <th scope="col">Detaliai</th>
+      <th scope="col">Koreguoti</th>
+      <th scope="col">Ištrinti</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for contract in object_list %}
+    <tr>
+      <th scope="row">{{form3.date}}</th>
+      <td>{{form3.contractor}}</td>
+      <td>{{form3.object}}</td>
+      <td>{{form3.contract}}</td>
+      <td>{{form3.sum_p_month}}</td>
+      <td><a class="btn btn-primary" href="/form3/form3-detail/{{form3.id}}" role="button"> Detaliai </a></td>
+      <td><a class="btn btn-warning" href="/form3/form3-edit/{{form3.id}}" role="button"> Koreguoti</a></td>
+      <td><a class="btn btn-danger" href="{% url 'form3_delete' form3.pk %}" role="button"> Ištrinti </a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    </div>
+<h1></h1>
+
+
+</div>
+
+
+{% endblock %}

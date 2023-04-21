@@ -1,0 +1,4 @@
+admin prisijungimas:
+email: alfa@elpastas.lt
+user: 1234alfa
+psw: 1234alfa

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navigation.html' %}
+
+<div id="container">
+<h5>UZSAKOVAI</h5>
+<p></p>
+
+<a class="btn btn-success" href="{% url 'customer_create' %}" role="button"> Įvesti naują užsakovą </a>
+  <div id="container1">
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Pavadinimas</th>
+      <th scope="col">Įmonės kodas</th>
+      <th scope="col">Adresas</th>
+      <th scope="col">Telefonas</th>
+      <th scope="col">El. paštas</th>
+      <th scope="col">Atovaujantis asmuo</th>
+      <th scope="col">Detaliai</th>
+      <th scope="col">Koreguoti</th>
+      <th scope="col">Ištrinti</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for customer in object_list %}
+    <tr>
+      <th scope="row">{{customer.name}}</th>
+      <td>{{customer.code}}</td>
+      <td>{{customer.address}}</td>
+      <td>{{customer.phone}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.ceo_person}}</td>
+      <td><a class="btn btn-primary" href="/customer/customer-detail/{{customer.id}}" role="button"> Detaliai </a></td>
+      <td><a class="btn btn-warning" href="{% url 'customer_edit' customer.pk %}" role="button"> Koreguoti</a></td>
+      <td><a class="btn btn-danger" href="{% url 'customer_delete' customer.pk %}" role="button"> Ištrinti </a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    </div>
+<h1></h1>
+
+
+</div>
+
+{% endblock %}

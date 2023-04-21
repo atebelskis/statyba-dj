@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navigation.html' %}
+
+<div id="container">
+<h5>OBJEKTAI</h5>
+<p></p>
+
+<a class="btn btn-success" href="{% url 'project_create' %}" role="button"> Įvesti naują objektą </a>
+  <div id="container1">
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Pavadinimas</th>
+      <th scope="col">Adresas</th>
+      <th scope="col">Užsakovas</th>
+      <th scope="col">Pabaigos data</th>
+      <th scope="col">Darbų rūšis</th>
+      <th scope="col">Detaliai</th>
+      <th scope="col">Koreguoti</th>
+      <th scope="col">Ištrinti</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for project in object_list %}
+    <tr>
+      <td> {{project.proj_name}}</td>
+      <td>{{project.address}}</td>
+      <td>{{project.customer}}</td>
+      <td>{{project.end_date}}</td>
+      <td>{{project.works_part}}</td>
+      <td><a class="btn btn-primary" href="/project/project-detail/{{project.id}}" role="button"> Detaliai </a></td>
+      <td><a class="btn btn-warning" href="/project/project-edit/{{project.id}}" role="button"> Koreguoti</a></td>
+      <td><a class="btn btn-danger" href="/project/project-delete/{{project.id}}" role="button"> Ištrinti </a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    </div>
+<h1></h1>
+
+
+</div>
+
+{% endblock %}

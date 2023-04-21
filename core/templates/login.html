@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% csrf_token %}
+<h3> prisijungimas</h3>
+<div>
+    <form method="post">
+
+            {% csrf_token %}
+<p>
+        <input type="text" name="username" placeholder="Vartotojas" >
+</p>
+        <p>
+        <input type="text" name="password" placeholder="Slaptazodis">
+        </p>
+    </form>
+    <input type="submit">
+
+</div>
+
+{% endblock %}

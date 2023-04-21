@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navigation.html' %}
+
+<div id="container">
+<h5>SF</h5>
+<p></p>
+
+<a class="btn btn-success" href="{% url 'invoice_create' %}" role="button"> Rašyti naują sąskaitą </a>
+  <div id="container1">
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Serija Nr.</th>
+      <th scope="col">Data</th>
+      <th scope="col">Pirkėjas</th>
+      <th scope="col">Objektas</th>
+      <th scope="col">Suma be PVM</th>
+      <th scope="col">Atvirkštinis PVM</th>
+      <th scope="col">Detaliai</th>
+      <th scope="col">Koreguoti</th>
+      <th scope="col">Ištrinti</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for invoice in object_list %}
+    <tr>
+      <th scope="row">{{invoice.serie}} {{invoice.number}}</th>
+      <td>{{invoice.date}}</td>
+      <td>{{invoice.buyer}}</td>
+      <td>{invoice.proj_name}}</td>
+      <td>{{invoice.sum_ex_vat}}</td>
+      <td>{{invoice.reverse_payment}}</td>
+      <td><a class="btn btn-primary" href="/invoice/invoice-detail/{{invoice.id}}" role="button"> Detaliai </a></td>
+      <td><a class="btn btn-warning" href="{% url 'invoice_edit' invoice.pk %}" role="button"> Koreguoti</a></td>
+      <td><a class="btn btn-danger" href="{% url 'invoice_delete' invoice.pk %}" role="button"> Ištrinti </a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    </div>
+<h1></h1>
+
+
+</div>
+
+{% endblock %}

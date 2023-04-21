@@ -1,0 +1,19 @@
+
+
+
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navigation.html' %}
+
+{% csrf_token %}
+<h3> pagrindinis</h3>
+<div>
+
+</div>
+
+
+<div>
+    <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Prisijungti</a>
+</div>
+
+{% endblock %}
